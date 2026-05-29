@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>USB Security Key for Bank of America — Setup and FAQ | USB Security Hub</title>
+<meta content="A complete guide to registering and using a USB security key for Bank of America, plus how to turn any standard flash drive into a secure personal device." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Replace YOUR-DOMAIN.com before launch -->
+<style>
+    :root {
+      --color-bg-base: #EEF2FF;
+      --color-layer-1: rgba(255,255,255,0.75);
+      --color-layer-2: rgba(255,255,255,0.50);
+      --color-primary-accent: #4338CA;
+      --color-secondary-accent: #EC4899;
+      --color-blob-a: #C7D2FE;
+      --color-blob-b: #FDE68A;
+      --color-body-text: #1E1B4B;
+      --color-heading-text: #171448;
+      --color-border: rgba(255,255,255,0.62);
+      --color-meta-text: #5B5685;
+      --color-soft-line: rgba(67,56,202,0.16);
+      --color-saas-band: #4338CA;
+      --font-heading: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --max-reading-width: 780px;
+      --max-wide-width: 1120px;
+      --section-padding-v: 84px;
+      --radius-card: 30px;
+      --radius-soft: 22px;
+      --shadow-card: 0 24px 70px rgba(67, 56, 202, 0.16);
+      --shadow-soft: 0 16px 40px rgba(30, 27, 75, 0.10);
+      --transition-speed: 0.28s;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--color-body-text);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(199,210,254,0.58), transparent 30vw),
+        radial-gradient(circle at 88% 2%, rgba(253,230,138,0.42), transparent 28vw),
+        linear-gradient(180deg, #EEF2FF 0%, #F8FAFF 48%, #EEF2FF 100%);
+      line-height: 1.72;
+      font-size: 16.5px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,0.28) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.24) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.42), transparent 78%);
+      z-index: -1;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: var(--font-heading);
+      color: var(--color-heading-text);
+      line-height: 1.08;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    h1 { font-size: clamp(2.5rem, 6vw, 3.875rem); }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-top: 0; }
+    h3 { font-size: 1.35rem; margin-top: 2rem; color: var(--color-primary-accent); }
+    h4 { font-size: 1.1rem; }
+
+    p { margin-bottom: 1.45rem; }
+    a { color: var(--color-primary-accent); text-decoration: none; transition: all var(--transition-speed); font-weight: 600; }
+    a:hover { color: #312E81; text-decoration: underline; text-underline-offset: 4px; }
+    ul, ol { margin-bottom: 1.5rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.55rem; }
+    code { background: rgba(67,56,202,0.10); border: 1px solid rgba(67,56,202,0.12); padding: 0.1em 0.35em; border-radius: 8px; }
+
+    .container { max-width: var(--max-wide-width); margin: 0 auto; padding: 0 26px; }
+    .reading-container { max-width: var(--max-reading-width); margin: 0 auto; }
+    .section-pad { padding: var(--section-padding-v) 0; position: relative; }
+    .bg-alternate { background: linear-gradient(180deg, rgba(255,255,255,0.56), rgba(199,210,254,0.32)); }
+    .section-pad > .container, .hero-card, .toc-card, .reg-walkthrough, .intent-content-block, .related-card, .faq-item, .inline-testimonial, .matrix-table, .pricing-table {
+      position: relative;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(238,242,255,0.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.66);
+      box-shadow: 0 14px 44px rgba(67,56,202,0.10);
+      padding: 12px 0;
+    }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1220px; margin: 0 auto; padding: 0 24px; gap: 22px; }
+    .site-brand { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--color-heading-text); letter-spacing: 0.2px; white-space: nowrap; text-transform: none; }
+    .brand-mark { width: 42px; height: 42px; flex: 0 0 42px; border-radius: 15px; filter: drop-shadow(0 10px 20px rgba(67,56,202,0.18)); }
+    .brand-wordmark { display: inline-flex; gap: 4px; align-items: baseline; }
+    .brand-wordmark span { display: inline-block; }
+    .nav-links { display: flex; align-items: center; gap: 24px; font-family: var(--font-body); font-size: 0.92rem; }
+    .nav-links a { color: var(--color-meta-text); font-weight: 600; }
+    .nav-links a:hover { color: var(--color-primary-accent); text-decoration: none; }
+    .mobile-menu-btn { display: none; background: rgba(255,255,255,0.58); border: 1px solid rgba(255,255,255,0.72); border-radius: 14px; font-size: 1.35rem; cursor: pointer; color: var(--color-primary-accent); padding: 8px 12px; }
+
+    .btn-outline, .btn-solid {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-family: var(--font-heading);
+      font-size: 0.98rem;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed), background var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+    }
+    .btn-outline { border: 1.5px solid rgba(236,72,153,0.72); color: var(--color-secondary-accent); background: rgba(255,255,255,0.35); backdrop-filter: blur(10px); }
+    .btn-outline:hover { background: rgba(236,72,153,0.10); color: var(--color-secondary-accent); text-decoration: none; transform: translateY(-2px); box-shadow: 0 14px 28px rgba(236,72,153,0.16); }
+    .btn-solid { background: linear-gradient(135deg, #4338CA, #5B21B6); color: #fff; border: 1.5px solid rgba(255,255,255,0.42); box-shadow: 0 16px 34px rgba(67,56,202,0.30); }
+    .btn-solid:hover { color: #fff; text-decoration: none; transform: translateY(-2px); box-shadow: 0 22px 42px rgba(67,56,202,0.34); }
+
+    .hero-editorial { position: relative; overflow: hidden; background: linear-gradient(135deg, #EEF2FF 0%, #F7F3FF 54%, #FFF7ED 100%); padding: 96px 0 80px; border-bottom: 1px solid rgba(255,255,255,0.7); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(280px, 0.86fr); gap: 34px; align-items: center; max-width: 1160px; }
+    .hero-card { background: var(--color-layer-1); border: 1px solid rgba(255,255,255,0.8); border-radius: 38px; padding: clamp(28px, 5vw, 52px); box-shadow: 0 30px 90px rgba(67,56,202,0.18); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); will-change: transform; transition: transform 0.2s ease-out; }
+    .hero-media-card { background: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.8); border-radius: 36px; padding: 18px; box-shadow: 0 26px 74px rgba(30,27,75,0.13); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .hero-media-card img { display: block; width: 100%; max-height: 380px; object-fit: contain; border-radius: 26px; }
+    .hero-blob { position: absolute; width: 390px; height: 390px; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; opacity: 0.30; filter: blur(1px); animation: blobDrift 20s infinite ease-in-out; pointer-events: none; }
+    .blob-one { background: var(--color-blob-a); top: -90px; left: -80px; }
+    .blob-two { background: var(--color-blob-b); top: 96px; right: 5%; animation-delay: -6s; }
+    .blob-three { background: linear-gradient(135deg, var(--color-blob-a), var(--color-blob-b)); bottom: -160px; left: 44%; animation-delay: -12s; }
+    @keyframes blobDrift {
+      0%, 100% { transform: translate3d(0,0,0) rotate(0deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      25% { transform: translate3d(18px,-12px,0) rotate(10deg); border-radius: 40% 60% 70% 30% / 30% 60% 40% 70%; }
+      50% { transform: translate3d(-12px,18px,0) rotate(-8deg); border-radius: 70% 30% 45% 55% / 55% 45% 30% 70%; }
+      75% { transform: translate3d(10px,10px,0) rotate(6deg); border-radius: 45% 55% 35% 65% / 70% 30% 60% 40%; }
+    }
+    .breadcrumb { display: inline-flex; align-items: center; gap: 8px; font-size: 0.84rem; color: var(--color-meta-text); margin-bottom: 1.25rem; font-weight: 600; background: rgba(255,255,255,0.52); border: 1px solid rgba(255,255,255,0.7); border-radius: 999px; padding: 8px 14px; }
+    .meta-bar { display: flex; flex-wrap: wrap; gap: 10px 16px; font-size: 0.85rem; color: var(--color-meta-text); margin-top: 1.4rem; border-top: 1px solid rgba(67,56,202,0.11); padding-top: 1rem; font-weight: 600; }
+    .quick-answer { background: rgba(255,255,255,0.64); border: 1px solid rgba(255,255,255,0.78); border-left: 6px solid var(--color-primary-accent); padding: 24px; margin: 30px 0 0; border-radius: 24px; box-shadow: var(--shadow-soft); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    .quick-answer-label { font-family: var(--font-heading); font-size: 0.74rem; text-transform: uppercase; color: var(--color-primary-accent); letter-spacing: 0.11em; margin-bottom: 10px; display: inline-flex; align-items: center; background: rgba(255,255,255,0.52); border: 1px solid rgba(255,255,255,0.68); border-radius: 999px; padding: 7px 12px; backdrop-filter: blur(10px); }
+
+    section[data-label] h2::before, .final-verdict[data-label] h2::before, #toc .toc-card h3::before {
+      content: attr(data-label);
+      display: table;
+      width: fit-content;
+      margin: 0 0 14px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(255,255,255,0.72);
+      color: var(--color-primary-accent);
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      line-height: 1;
+      backdrop-filter: blur(12px);
+    }
+    section[data-label].pink-label h2::before { color: var(--color-secondary-accent); }
+    #toc .toc-card h3::before { content: "GUIDE"; color: var(--color-secondary-accent); }
+
+    .horizontal-scroll-section { display: grid; grid-template-columns: repeat(3, minmax(220px, 1fr)); gap: 22px; padding: 28px 0; overflow: visible; }
+    .intent-card, .toc-card, .intent-content-block, .reg-walkthrough, .related-card, .faq-item, .inline-testimonial, .method-card, .content-image, .image-pair, .saas-mockup, .matrix-table, .pricing-table {
+      background: var(--color-layer-1);
+      border: 1px solid rgba(255,255,255,0.72);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .intent-card { min-width: 0; padding: 18px; cursor: pointer; transition: transform var(--transition-speed), box-shadow var(--transition-speed), backdrop-filter var(--transition-speed), border-color var(--transition-speed); }
+    .intent-card:hover, .related-card:hover, .method-card:hover { transform: translateY(-5px); box-shadow: 0 28px 74px rgba(67,56,202,0.20); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .intent-card-img { width: 100%; height: 124px; object-fit: contain; border-radius: 20px; margin-bottom: 14px; background: rgba(255,255,255,0.46); }
+    .intent-icon { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 22px; border-radius: 16px; background: rgba(67,56,202,0.10); }
+    .intent-content-block { display: none; animation: fadeIn 0.4s ease; padding: 26px; margin-top: 12px; }
+    .intent-content-block.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .toc-card { padding: 34px; margin: 48px 0; }
+    .toc-card h3 { margin-top: 0; font-size: 1.18rem; margin-bottom: 18px; border-bottom: 1px solid rgba(67,56,202,0.12); padding-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; font-family: var(--font-body); font-size: 0.96rem; }
+    .toc-list li { margin-bottom: 12px; }
+    .toc-list a { color: var(--color-body-text); display: flex; align-items: center; font-weight: 600; }
+    .toc-list a::before { content: "→"; margin-right: 9px; color: var(--color-secondary-accent); }
+    .toc-list a:hover { color: var(--color-primary-accent); text-decoration: none; padding-left: 4px; }
+
+    .content-image { overflow: hidden; padding: 16px; margin: 34px 0; background: rgba(255,255,255,0.58); }
+    .content-image img, .image-pair img, .related-thumb, .deep-dive-img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 22px; }
+    .content-image img { max-height: 360px; }
+    .content-image.hero-inline img { max-height: 320px; }
+    .image-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 16px; margin: 34px 0; }
+    .image-pair img { max-height: 300px; background: rgba(255,255,255,0.36); }
+    .related-thumb { max-height: 180px; margin-bottom: 18px; background: rgba(255,255,255,0.42); }
+    .deep-dive-img { max-height: 240px; margin: 14px 0 18px; background: rgba(255,255,255,0.44); }
+
+    .sig-pullquote { position: relative; padding: 34px 40px; margin: 48px 0; font-size: 1.2rem; font-style: italic; color: var(--color-primary-accent); border: 1px solid rgba(255,255,255,0.72); border-radius: 30px; text-align: center; background: rgba(255,255,255,0.58); box-shadow: var(--shadow-soft); backdrop-filter: blur(14px); }
+    .sig-pullquote svg { position: absolute; top: -24px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.76); border-radius: 18px; padding: 8px 14px; width: 64px; height: 48px; fill: var(--color-primary-accent); box-shadow: 0 12px 30px rgba(67,56,202,0.15); }
+
+    .method-card { position: relative; padding: 28px; margin: 26px 0; overflow: hidden; }
+    .method-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 7px; background: linear-gradient(90deg, var(--color-primary-accent), var(--color-secondary-accent)); }
+    .method-card.method-one::before { background: linear-gradient(90deg, #4338CA, #818CF8); }
+    .method-card.method-two::before { background: linear-gradient(90deg, #EC4899, #FDE68A); }
+    .method-card h3 { margin-top: 0; }
+
+    .compare-table-wrapper { overflow-x: auto; margin: 38px 0; border-radius: 30px; }
+    .matrix-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; min-width: 650px; padding: 12px; background: rgba(248,247,255,0.68); overflow: hidden; }
+    .matrix-table th, .matrix-table td { padding: 16px 18px; text-align: center; border-bottom: 0; font-family: var(--font-body); font-size: 0.94rem; background: rgba(255,255,255,0.55); }
+    .matrix-table th { background: rgba(67,56,202,0.10); color: var(--color-heading-text); font-family: var(--font-heading); font-size: 0.95rem; letter-spacing: 0.02em; }
+    .matrix-table td:first-child, .matrix-table th:first-child { text-align: left; font-weight: 800; border-radius: 18px 0 0 18px; }
+    .matrix-table td:last-child, .matrix-table th:last-child { border-radius: 0 18px 18px 0; }
+    .dot-fill { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: var(--color-primary-accent); box-shadow: 0 0 0 5px rgba(67,56,202,0.10); }
+    .dot-empty { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(91,86,133,0.26); }
+    .row-highlight td { background: linear-gradient(135deg, rgba(67,56,202,0.96), rgba(91,33,182,0.94)); color: #fff; }
+    .row-highlight .dot-fill { background: #fff; box-shadow: 0 0 0 5px rgba(255,255,255,0.18); }
+    .row-highlight .dot-empty { border-color: rgba(255,255,255,0.55); }
+
+    .feature-row { display: flex; align-items: flex-start; gap: 24px; padding: 24px 0; border-bottom: 1px solid rgba(67,56,202,0.12); }
+    .feature-icon { width: 48px; height: 48px; background: rgba(67,56,202,0.10); border-radius: 17px; display: flex; align-items: center; justify-content: center; color: var(--color-primary-accent); font-size: 20px; flex-shrink: 0; }
+    .feature-content h4 { margin: 0 0 8px 0; font-size: 1.15rem; }
+    .feature-content p { margin: 0; font-size: 0.95rem; }
+
+    .saas-moment { background: radial-gradient(circle at 12% 20%, rgba(236,72,153,0.35), transparent 32%), linear-gradient(135deg, #4338CA, #312E81); color: #fff; padding: 104px 0; position: relative; overflow: hidden; }
+    .saas-moment::before { content: ""; position: absolute; inset: 26px; border-radius: 42px; border: 1px solid rgba(255,255,255,0.20); pointer-events: none; }
+    .saas-moment h2, .saas-moment h3, .saas-moment .label { color: #fff; }
+    .saas-grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 58px; align-items: center; }
+    .saas-mockup { padding: 20px; background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.26); box-shadow: 0 30px 80px rgba(0,0,0,0.22); }
+    .saas-mockup-inner { position: relative; background: rgba(255,255,255,0.16); border-radius: 24px; min-height: 360px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .saas-mockup-inner img { object-fit: contain; display: block; }
+    .product-ui-shot { width: 100%; max-height: 348px; border-radius: 22px; }
+    .product-boxshot { position: absolute; right: 12px; bottom: 12px; width: min(30%, 135px); max-height: 190px; filter: drop-shadow(0 18px 25px rgba(0,0,0,0.26)); }
+    .sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
+    .feature-chip { display: inline-block; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); padding: 9px 15px; border-radius: 999px; font-size: 0.84rem; margin: 0 8px 8px 0; font-family: var(--font-body); color: #fff; }
+
+    .faq-accordion, .deep-dive-accordion { margin: 38px 0; }
+    .faq-item { margin-bottom: 16px; overflow: hidden; transition: background var(--transition-speed), transform var(--transition-speed), backdrop-filter var(--transition-speed); }
+    .faq-question { width: 100%; text-align: left; padding: 22px 24px; background: none; border: none; font-family: var(--font-heading); font-size: 1.13rem; color: var(--color-heading-text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 18px; transition: color var(--transition-speed); }
+    .faq-preview { display: block; font-family: var(--font-body); font-size: 0.88rem; color: var(--color-meta-text); font-weight: 500; margin: 0 24px 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: calc(100% - 48px); }
+    .faq-answer { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-size: 0.95rem; }
+    .faq-item.active { background: linear-gradient(135deg, rgba(236,72,153,0.13), rgba(255,255,255,0.72)); border-color: rgba(236,72,153,0.25); }
+    .faq-item.active .faq-question { color: var(--color-primary-accent); }
+    .faq-item.active .faq-answer { padding-bottom: 24px; }
+    .faq-item.active .faq-preview { display: none; }
+    .faq-icon { transition: transform 0.3s; width: 30px; height: 30px; border-radius: 50%; background: rgba(67,56,202,0.08); display: inline-flex; align-items: center; justify-content: center; flex: 0 0 30px; }
+    .faq-item.active .faq-icon { transform: rotate(45deg); background: rgba(236,72,153,0.16); }
+
+    .inline-testimonial { border-left: 5px solid var(--color-secondary-accent); padding: 18px 24px; margin: 32px 0; font-style: italic; }
+    .inline-testimonial cite { display: block; margin-top: 12px; font-style: normal; font-family: var(--font-body); font-size: 0.85rem; font-weight: 700; color: var(--color-meta-text); }
+
+    .pricing-table { width: 100%; border-collapse: collapse; margin: 40px 0; overflow: hidden; }
+    .pricing-table th { padding: 20px; text-align: left; font-family: var(--font-heading); font-size: 1.2rem; background: rgba(67,56,202,0.10); border-bottom: 1px solid rgba(67,56,202,0.12); width: 50%; }
+    .pricing-table td { padding: 16px 20px; border-bottom: 1px solid rgba(67,56,202,0.10); font-family: var(--font-body); font-size: 0.95rem; vertical-align: top; }
+    .pricing-table tr:last-child td { border-bottom: none; }
+
+    .reg-walkthrough { padding: 34px; text-align: center; margin: 40px 0; }
+    .step-visual { width: min(100%, 420px); min-height: 116px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-size: 3rem; border-radius: 26px; background: linear-gradient(135deg, rgba(67,56,202,0.10), rgba(236,72,153,0.10)); }
+    .step-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(91,86,133,0.22); transition: 0.3s; }
+    .dot.active { background: var(--color-secondary-accent); box-shadow: 0 0 0 5px rgba(236,72,153,0.12); }
+
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 32px; }
+    .related-card { padding: 24px; transition: transform var(--transition-speed), box-shadow var(--transition-speed), backdrop-filter var(--transition-speed); }
+    .related-card h4 { margin-top: 0; font-size: 1.18rem; color: var(--color-primary-accent); }
+    .related-card p { font-size: 0.92rem; color: var(--color-meta-text); margin-bottom: 16px; }
+
+    .final-verdict { background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(238,242,255,0.82)); }
+    .site-footer { background: linear-gradient(135deg, #171448, #312E81); color: rgba(255,255,255,0.72); padding: 68px 0 34px; font-family: var(--font-body); font-size: 0.88rem; position: relative; overflow: hidden; }
+    .site-footer::before { content: ""; position: absolute; inset: auto -120px -180px auto; width: 420px; height: 420px; background: rgba(236,72,153,0.20); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; filter: blur(8px); }
+    .footer-flex { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; margin-bottom: 48px; position: relative; }
+    .footer-brand { display: inline-flex; align-items: center; gap: 12px; color: #fff; font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
+    .footer-col a { color: #fff; display: block; margin-bottom: 12px; font-weight: 600; }
+    .footer-col h4 { color: #fff; font-family: var(--font-heading); font-size: 1.05rem; margin-bottom: 20px; }
+    .footer-legal { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; position: relative; }
+
+    .js-ready .reveal { opacity: 0; transform: scale(0.96) translateY(12px); transition: opacity 0.65s ease, transform 0.65s cubic-bezier(.22,.72,.24,1); }
+    .js-ready .reveal.is-visible { opacity: 1; transform: scale(1) translateY(0); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .saas-grid, .image-pair { grid-template-columns: 1fr; }
+      .horizontal-scroll-section { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+      .intent-card { min-width: 280px; scroll-snap-align: start; }
+      .hero-media-card img { max-height: 310px; }
+    }
+    @media (max-width: 768px) {
+      :root { --section-padding-v: 64px; --radius-card: 24px; }
+      .site-header { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+      .nav-links { display: none; flex-direction: column; align-items: stretch; position: absolute; top: 100%; left: 16px; right: 16px; background: rgba(255,255,255,0.86); padding: 18px; border: 1px solid rgba(255,255,255,0.72); border-radius: 22px; box-shadow: var(--shadow-card); backdrop-filter: blur(12px); }
+      .nav-links.active { display: flex; }
+      .mobile-menu-btn { display: block; }
+      h1 { font-size: 2.5rem; }
+      .hero-editorial { padding: 70px 0 58px; }
+      .hero-card { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+      .hero-blob { animation-duration: 40s; }
+      .content-image, .image-pair, .intent-card, .toc-card, .reg-walkthrough, .related-card, .faq-item, .method-card { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); width: 100%; }
+      .matrix-table { font-size: 0.85rem; }
+      .pricing-table th, .pricing-table td { display: block; width: 100%; text-align: left; }
+      .pricing-table tr { display: flex; flex-direction: column; border-bottom: 2px solid rgba(67,56,202,0.12); padding-bottom: 16px; margin-bottom: 16px; }
+      .footer-legal p[style] { text-align: left !important; }
+      .product-boxshot { width: 110px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.001ms !important; }
+    }
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="header-inner">
+<a class="site-brand" href="/"><svg aria-label="USB Security Hub shield graphic" class="brand-mark" role="img" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="brandShield" x1="8" x2="56" y1="6" y2="58">
+<stop stop-color="#4338CA"></stop>
+<stop offset="1" stop-color="#EC4899"></stop>
+</linearGradient>
+</defs>
+<rect fill="rgba(255,255,255,0.72)" height="52" rx="18" width="52" x="6" y="6"></rect>
+<path d="M32 11l18 7v13c0 12.5-7.6 19.6-18 22-10.4-2.4-18-9.5-18-22V18l18-7z" fill="url(#brandShield)"></path>
+<path d="M32 20v11" stroke="white" stroke-linecap="round" stroke-width="4"></path>
+<path d="M23 31h18" stroke="white" stroke-linecap="round" stroke-width="4"></path>
+<circle cx="32" cy="40" fill="white" r="4"></circle>
+</svg><span class="brand-wordmark"><span>USB</span><span>Security</span><span>Hub</span></span></a>
+<button aria-label="Toggle Menu" class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+<nav class="nav-links" id="mainNav">
+<a href="#overview">Overview</a>
+<a href="#fido-setup">Setup Guide</a>
+<a href="#recommendation">Our Pick</a>
+<a href="#comparison">Key Comparison</a>
+<a href="#faq">FAQ</a>
+<a class="btn-outline" href="#recommendation" style="padding: 6px 16px; font-size: 0.9rem;">See Our Top Pick →</a>
+</nav>
+</div>
+</header>
+<main>
+<article>
+<!-- S1: HERO EDITORIAL -->
+<header class="hero-editorial"><div aria-hidden="true" class="hero-blob blob-one"></div><div aria-hidden="true" class="hero-blob blob-two"></div><div aria-hidden="true" class="hero-blob blob-three"></div>
+<div class="container hero-grid"><div class="hero-card" id="heroCard">
+<div class="breadcrumb">Home / Security Guides / Bank of America USB Protection</div>
+<h1>USB Security Key for Bank of America — Setup and FAQ</h1>
+<p style="font-size: 1.2rem; color: var(--color-meta-text);">A complete, step-by-step guide to registering a hardware security token for Bank of America wire transfers, protecting your financial data on portable drives, and avoiding critical USB vulnerabilities.</p>
+<div class="meta-bar">
+<span>By Editorial Team</span>
+<span>·</span>
+<span>Updated: May 2026</span>
+<span>·</span>
+<span>12 min read</span>
+</div>
+<div class="quick-answer">
+<span class="quick-answer-label">Quick Answer</span>
+<p style="margin:0;">To set up a <strong>Bank of America USB security key</strong> for SafePass or wire transfers, you must purchase a <strong><a href="https://uk.pcmag.com/guide/78973/the-ultimate-usb-key" rel="noopener noreferrer" target="_blank">FIDO2-certified security key</a></strong> (such as a YubiKey). Once acquired, log into BofA Online Banking, navigate to Security Center &gt; Extra Security at Sign-in, and select "Add a USB Security Key" to link the hardware token to your profile. If you are instead looking to password-protect a standard USB drive holding financial documents, you will need dedicated encryption software like Folder Lock or USB Secure.</p>
+</div>
+</div>
+<div class="hero-media-card reveal">
+<img alt="USB security key for Bank of America authentication and financial data protection" decoding="async" fetchpriority="high" src="https://i.ibb.co/Tq26xj92/usb-security-key-for-bank-of-america.jpg"/>
+</div></div>
+</header>
+<!-- SEED A OVERRIDE: Horizontal Scroll Intent Selector -->
+<section class="section-pad bg-alternate" data-label="OVERVIEW" id="overview">
+<div class="reading-container container">
+<h2>What exactly are you trying to do?</h2>
+<p>The term "USB security" in banking usually means one of two entirely different things. Select your situation below to jump to the right instructions.</p>
+<div class="horizontal-scroll-section" id="intentScroller">
+<div class="intent-card reveal" data-target="intent-login"><img alt="Fingerprint login and hardware key authentication icon for secure banking access" class="intent-card-img" decoding="async" loading="lazy" src="https://i.ibb.co/gZZd98Zt/fingerprint-login-logo.png"/>
+<div class="intent-icon">🔑</div>
+<h3 style="margin-top:0; font-size: 1.1rem;">I need a key to log into Bank of America</h3>
+<p style="font-size: 0.9rem; color: var(--color-meta-text); margin:0;">You are setting up wire transfers, SafePass, or CashPro and BofA asked for a "security key".</p>
+</div>
+<div class="intent-card reveal" data-target="intent-data"><img alt="USB disk security software protecting files on a portable drive" class="intent-card-img" decoding="async" loading="lazy" src="https://i.ibb.co/TDtqFLT2/usb-disk-security-software.jpg"/>
+<div class="intent-icon">📁</div>
+<h3 style="margin-top:0; font-size: 1.1rem;">I want to password-protect my USB drive</h3>
+<p style="font-size: 0.9rem; color: var(--color-meta-text); margin:0;">You have bank statements or financial data on a flash drive and need to encrypt it.</p>
+</div>
+<div class="intent-card reveal" data-target="intent-troubleshoot"><img alt="Unlocking protected USB data during safe account recovery" class="intent-card-img" decoding="async" loading="lazy" src="https://i.ibb.co/gLVNxgq4/Accessing-Data-Unlocking.jpg"/>
+<div class="intent-icon">⚠️</div>
+<h3 style="margin-top:0; font-size: 1.1rem;">My USB key is not working or is lost</h3>
+<p style="font-size: 0.9rem; color: var(--color-meta-text); margin:0;">You forgot your password or your bank token isn't being recognized.</p>
+</div>
+</div>
+<!-- Intent Dynamic Blocks -->
+<div class="intent-content-block reveal" id="intent-login">
+<span class="quick-answer-label" style="font-size: 0.8rem;">Context: Hardware Authentication</span>
+<p>Bank of America requires a <strong>FIDO2 or WebAuthn certified hardware token</strong> (like a YubiKey or Google Titan) for high-value operations like CashPro wire transfers. A regular thumb drive <em>cannot</em> be used as a login token. <br/><br/><a href="#fido-setup">Jump to FIDO Registration Guide ↓</a></p>
+</div>
+<div class="intent-content-block reveal" id="intent-data">
+<span class="quick-answer-label" style="font-size: 0.8rem;">Context: Data Encryption</span>
+<p>If you want to turn a regular, cheap USB flash drive into a secure, password-protected vault for your Bank of America PDF statements, you must use encryption software. <br/><br/><a href="#data-encryption">Jump to USB Data Protection Guide ↓</a></p>
+</div>
+<div class="intent-content-block reveal" id="intent-troubleshoot">
+<span class="quick-answer-label" style="font-size: 0.8rem;">Context: Recovery</span>
+<p>If you lost your BofA FIDO key, you must contact BofA customer support immediately to decouple it from your account to prevent lockout. If you forgot the password to an encrypted USB drive, safe recovery depends on your master key. <br/><br/><a href="#troubleshooting">Jump to Troubleshooting ↓</a></p>
+</div>
+</div>
+</section>
+<!-- S2: TOC -->
+<div class="reading-container container" id="toc">
+<div class="toc-card reveal">
+<h3>Guide Contents</h3>
+<ul class="toc-list">
+<li><a href="#fido-setup">How to Register a USB Security Key with Bank of America</a></li>
+<li><a href="#data-encryption">How to Make a Windows USB Security Key (Data Protection)</a></li>
+<li><a href="#recommendation">The Tool We Recommend for Most Users</a></li>
+<li><a href="#comparison">Best USB Security Keys for Bank of America (Comparison)</a></li>
+<li><a href="#technical-deep-dive">Technical Deep Dive: Enpoint vs Drive Security</a></li>
+<li><a href="#troubleshooting">Troubleshooting &amp; Safe Recovery</a></li>
+<li><a href="#related-guides">Organizational Policies and Safe Usage</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</div>
+</div>
+<!-- S4: METHODS GUIDE -->
+<section class="section-pad" data-label="GUIDE" id="fido-setup">
+<div class="reading-container container">
+<h2>How to Register a USB Security Key with Bank of America</h2>
+<p>If you are a CashPro user or utilizing BofA's advanced security features for wire transfers, you will be prompted to register a <strong>USB personal security device</strong>. This is a dedicated piece of hardware that generates cryptographic signatures. Here is how to set it up.</p><div class="content-image reveal hero-inline"><img alt="FIDO2 USB security key connected to a computer for banking authentication" decoding="async" loading="lazy" src="https://i.ibb.co/LdhVNTRm/what-is-a-usb-security-key.jpg"/></div>
+<!-- SEED E Signature Detail: Pull-Quote -->
+<div class="sig-pullquote reveal">
+<svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></svg>
+            "Can a security key be any USB? No. For banking authentication, the device must have a dedicated cryptographic chip meeting FIDO2 standards. A standard storage thumb drive will not work."
+          </div>
+<h3>Step-by-Step BofA Setup</h3>
+<!-- JS Animated Walkthrough -->
+<div class="reg-walkthrough reveal" id="bofa-walkthrough">
+<div class="step-visual" id="stepVisual">💻 ➔ 🏦</div>
+<h4 id="stepTitle">Step 1: Log Into Security Center</h4>
+<p id="stepDesc">Sign into your BofA online portal. Navigate to the 'Security Center' and select 'Extra Security at Sign-In'.</p>
+<div style="margin-top: 20px;">
+<button class="btn-outline" disabled="" id="prevStep" style="padding: 4px 12px; font-size: 0.8rem;">← Back</button>
+<button class="btn-solid" id="nextStep" style="padding: 4px 12px; font-size: 0.8rem; margin-left: 8px;">Next Step →</button>
+</div>
+<div class="step-dots" id="stepDots">
+<span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+</div>
+<p><strong>Note for Mac users:</strong> Ensure your browser (Safari, Chrome, or Edge) has permissions to access external security keys. You may be prompted by macOS to allow the connection.</p>
+</div>
+</section>
+<section class="section-pad bg-alternate" data-label="METHODS" id="data-encryption">
+<div class="reading-container container">
+<h2>How to Make a Windows USB Security Key (Data Vault)</h2>
+<p>If your goal isn't logging into a website, but rather figuring out <strong>how to turn a usb into a security key</strong> for storing sensitive files safely (like downloaded BofA statements), you need to encrypt the drive itself.</p>
+<p>There are two primary ways to do this natively, plus third-party software approaches.</p>
+<div class="image-pair reveal">
+<img alt="USB Secure password dialog for protecting a flash drive with encryption" decoding="async" loading="lazy" src="https://i.ibb.co/NnprhyFP/usb-secure-password-dialog-screenshot.jpg"/>
+<img alt="Windows File Explorer showing a USB drive before applying data protection" decoding="async" loading="lazy" src="https://i.ibb.co/35v0S8cp/Windows-file-explorer.jpg"/>
+</div>
+<div class="method-card method-one reveal"><h3>Method 1: BitLocker to Go (Windows Pro/Enterprise)</h3>
+<p>If you have a professional edition of Windows 10 or Windows 11, you can use <a href="https://windowsreport.com/encrypt-usb-flash-drive-windows/" rel="noopener noreferrer" target="_blank">built-in encryption</a>.</p>
+<ul>
+<li><strong>Difficulty:</strong> Moderate</li>
+<li><strong>Best for:</strong> Users who only use Windows Pro machines.</li>
+<li><strong>Limitations:</strong> Not available on Windows 10/11 Home edition. Drives encrypted with BitLocker are difficult or impossible to open natively on macOS without third-party utilities.</li>
+</ul>
+</div><div class="method-card method-two reveal"><h3>Method 2: Third-Party Encryption Software</h3>
+<p>For users who want to know <strong>how to create a usb security key on windows 11</strong> Home edition, or those who need to move their USB between a Windows PC and a Mac, dedicated software is required to <a href="https://www.ubergizmo.com/how-to/password-protect-usb-disk/" rel="noopener noreferrer" target="_blank">password-protect the drive</a>.</p>
+<ul>
+<li><strong>Difficulty:</strong> Easy</li>
+<li><strong>Best for:</strong> Cross-platform users, Windows Home users, and those seeking plug-and-play simplicity.</li>
+<li><strong>Limitations:</strong> Requires software installation on the host machine, or using a "portable" executable that lives on the USB drive itself.</li>
+</ul>
+</div></div>
+</section>
+<!-- S5: WHY RECOMMEND SOFTWARE_NAME (Premium SaaS Moment) -->
+<section class="saas-moment pink-label" data-label="OUR PICK" id="recommendation">
+<div class="container saas-grid">
+<div>
+<span class="quick-answer-label" style="color: #a0a5b5;">The Tool We Recommend for Most Users</span>
+<h2 style="font-size: 2.5rem; margin-top: 8px;">Turn Any USB into a Secure Vault with Folder Lock</h2>
+<p style="color: #a0a5b5; font-size: 1.1rem; margin-bottom: 32px;">Of all the software methods we tested for securing financial documents on portable drives, we recommend Folder Lock. It bypasses the limitations of BitLocker, works on any Windows version, and offers a portable locker feature so you can open your secure files on any PC without installing the software twice.</p>
+<div style="margin-bottom: 32px;">
+<span class="feature-chip">AES-256 Encryption</span>
+<span class="feature-chip">Portable Lockers</span>
+<span class="feature-chip">Windows 10 &amp; 11 Ready</span>
+</div>
+<a class="btn-solid" href="https://www.newsoftwares.net/download/folderlock10-en/folderlock10-en.exe" rel="noopener noreferrer" style="background: #fff; color: var(--color-primary-accent); border-color: #fff; margin-right: 16px;" target="_blank">Try Folder Lock Free →</a>
+<a class="btn-outline" href="https://store.newsoftwares.net/?add=fl10" rel="noopener noreferrer" style="color: #fff; border-color: #fff;" target="_blank">Get the Full Version →</a>
+</div>
+<div class="saas-mockup reveal">
+<div class="saas-mockup-inner">
+<span class="sr-only">[Folder Lock Interface Dashboard Visual]</span>
+<img alt="Folder Lock 10 main dashboard interface for securing USB financial files" class="product-ui-shot" decoding="async" loading="lazy" src="https://i.ibb.co/ynCZTHt1/folder-lock-10-main-screen.png"/>
+<img alt="Folder Lock 10 software boxshot for encrypted USB vaults" class="product-boxshot" decoding="async" loading="lazy" src="https://i.ibb.co/V0Sw4tk7/folder-lock-10-boxshot.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- S7: CORE FEATURES (Feature Display V1) -->
+<section class="section-pad">
+<div class="reading-container container">
+<h2>Why Folder Lock Fits This Use Case</h2>
+<p>When dealing with sensitive bank statements, you need software that fails safely. Here is exactly what the recommended tool provides as a standalone USB security app.</p>
+<div class="feature-row">
+<div class="feature-icon">🔒</div>
+<div class="feature-content">
+<h4>Military-Grade File Encryption</h4>
+<p>Converts your financial documents into unreadable ciphertext using 256-bit AES encryption. Even if the USB is lost in public, the data remains cryptographically shredded to anyone without the master password.</p>
+</div>
+</div>
+<div class="feature-row">
+<div class="feature-icon">💼</div>
+<div class="feature-content">
+<h4>Create Portable Lockers</h4>
+<p>Creates a self-contained encrypted partition on your thumb drive. You can take this USB to a library, a hotel business center, or a client's office and access the data securely using the included portable executable.</p>
+</div>
+</div>
+<div class="feature-row">
+<div class="feature-icon">🛡️</div>
+<div class="feature-content">
+<h4>Protects Against BadUSB Attacks</h4>
+<p>While no software can prevent a physical hardware hack, storing your executables inside a locked, encrypted container mitigates the risk of automated script-kiddie viruses infecting your files the moment the drive is plugged in.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- S8: METHODS COMPARISON TABLE (Dot Matrix V4) -->
+<section class="section-pad bg-alternate pink-label" data-label="COMPARISON" id="comparison">
+<div class="reading-container container">
+<h2>USB Protection Method Comparison</h2>
+<p>How do the different approaches to USB security stack up? Whether you are buying a FIDO key for BofA login, or using Folder Lock for data storage, understand the differences.</p>
+<div class="compare-table-wrapper reveal">
+<table class="matrix-table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Bank Login (FIDO)</th>
+<th>Data Encryption</th>
+<th>Cross-Platform</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardware Security Key (YubiKey)</td>
+<td><span class="dot-fill"></span></td>
+<td><span class="dot-empty"></span></td>
+<td><span class="dot-fill"></span></td>
+<td>$$$</td>
+</tr>
+<tr>
+<td>Windows BitLocker to Go</td>
+<td><span class="dot-empty"></span></td>
+<td><span class="dot-fill"></span></td>
+<td><span class="dot-empty"></span></td>
+<td>Free (Pro only)</td>
+</tr>
+<tr class="row-highlight">
+<td>Folder Lock (Recommended)</td>
+<td><span class="dot-empty"></span></td>
+<td><span class="dot-fill"></span></td>
+<td><span class="dot-fill"></span> (via Portable)</td>
+<td>$</td>
+</tr>
+<tr>
+<td>Hardware-Encrypted USB Drive</td>
+<td><span class="dot-empty"></span></td>
+<td><span class="dot-fill"></span></td>
+<td><span class="dot-fill"></span></td>
+<td>$$$$</td>
+</tr>
+</tbody>
+</table>
+</div><div class="content-image reveal"><img alt="USB Secure software review visual comparing password protection options for flash drives" decoding="async" loading="lazy" src="https://i.ibb.co/9ktkWkDd/usb-secure-software-review.jpg"/></div>
+<p style="font-size: 0.85rem; color: var(--color-meta-text);">Note: Hardware FIDO keys authenticate identity. Encryption software protects files. They serve different but equally important security functions.</p>
+</div>
+</section>
+<!-- S10: PRODUCT DEEP-DIVE ACCORDION (Added based on new research context) -->
+<section class="section-pad" data-label="DEEP DIVE" id="technical-deep-dive">
+<div class="reading-container container">
+<h2>Technical Deep Dive: Endpoint vs. Drive-Level Security</h2>
+<p>Protecting financial data requires understanding the distinct layers of security available for portable media. Beyond basic <a href="https://proprivacy.com/guides/encrypt-files-windows" rel="noopener noreferrer" target="_blank">file encryption</a>, advanced tools offer sandboxed viewing environments and strict port-level controls to prevent unauthorized data extraction entirely.</p>
+<div class="deep-dive-accordion faq-accordion">
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question">
+                Virtual Drive Sandboxing for Safe Viewing
+                <span class="faq-icon">+</span>
+</button>
+<div class="faq-preview">Avoid decrypting sensitive financial spreadsheets directly onto guest computers...</div>
+<div class="faq-answer">
+<img alt="Secure virtual drive sandbox for viewing encrypted files without leaving traces" class="deep-dive-img reveal" decoding="async" loading="lazy" src="https://i.ibb.co/q3LHT6Kb/Secure-Virtual-Drive.jpg"/><p>When you plug an encrypted drive into a public or shared workstation, fully decrypting your files can leave temporary trace data on the host machine's hard drive. Advanced portable security tools resolve this by establishing a temporary, secure virtual drive. By authenticating your password, the software mounts a secure viewing window where you can read or edit your documents safely. Once the drive is removed or the session is locked, the virtual environment vanishes, leaving zero footprint on the guest PC. Importantly, modern iterations of these tools are designed to operate as self-contained executables, meaning you do not need administrative installation privileges on the host computer to access your vault.</p>
+</div>
+</div>
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question">
+                Endpoint Security and Device Whitelisting
+                <span class="faq-icon">+</span>
+</button>
+<div class="faq-preview">Securing the physical ports on your workstation against rogue devices...</div>
+<div class="faq-answer">
+<img alt="Blocked USB port endpoint security illustration for unauthorized devices" class="deep-dive-img reveal" decoding="async" loading="lazy" src="https://i.ibb.co/5XXFPSP1/The-Blocked-Port.jpg"/><p>While encrypting a flash drive protects the data while it travels, organizations must also secure the physical USB ports on their workstations. Endpoint restriction tools are engineered to reject unrecognized hardware at the operating system kernel level. An administrator can whitelist specific, company-approved devices—such as a designated Bank of America FIDO key or a trusted backup drive—while outright blocking undocumented thumb drives, smartphones, and optical media. This prevents unauthorized individuals from quietly extracting massive amounts of data from your machine in seconds.</p>
+</div>
+</div>
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question">
+                Invisible Monitoring and Threat Logging
+                <span class="faq-icon">+</span>
+</button>
+<div class="faq-preview">Maintaining an audit trail of physical access attempts on your machine...</div>
+<div class="faq-answer">
+<img alt="Audit trail and data logging dashboard for USB security monitoring" class="deep-dive-img reveal" decoding="async" loading="lazy" src="https://i.ibb.co/W4JBsgpd/audit-trail-data-logging.jpg"/><p>A crucial component of endpoint security is maintaining a strict audit trail. Sophisticated port-blocking software often operates in a stealth capacity, hiding its presence from the desktop and start menu. When an unauthorized drive is inserted, the software quietly blocks the connection and logs the event. It can also track failed password attempts, uninstallation efforts, and unauthorized file deletions, providing IT teams with precise timestamps and user data to identify potential insider threats before a breach occurs.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- S12: FREE VS FULL VERSION COMPARISON (Pricing V6) -->
+<section class="section-pad bg-alternate">
+<div class="reading-container container">
+<h2>Folder Lock: Free Trial vs Full Version</h2>
+<p>If you decide to use Folder Lock to create a USB security key for your data, you can start without paying. Here is an editorial breakdown of what is included.</p>
+<table class="pricing-table">
+<thead>
+<tr>
+<th>Free Trial Version</th>
+<th>Full Licensed Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic file hiding and locking</td>
+<td>Unlimited AES-256 file encryption</td>
+</tr>
+<tr>
+<td>Limited locker size constraints</td>
+<td>Unlimited USB locker capacities</td>
+</tr>
+<tr>
+<td>Local PC protection</td>
+<td>Portable lockers (take your USB anywhere)</td>
+</tr>
+<tr>
+<td>
+<br/>
+<a class="btn-outline" href="#download" style="font-size: 0.9rem;">Download Free Version →</a>
+</td>
+<td>
+<br/>
+<a class="btn-solid" href="#buy" style="font-size: 0.9rem;">View Full Version Pricing →</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- S16: TROUBLESHOOTING GUIDE -->
+<section class="section-pad" data-label="RECOVERY" id="troubleshooting">
+<div class="reading-container container">
+<h2>Owner-Safe Troubleshooting &amp; Recovery</h2>
+<p>Whether dealing with Bank of America's portal or an encrypted USB drive, issues happen. Here are practical fixes for the most common <code>insert your security key into the usb port</code> errors.</p><div class="content-image reveal"><img alt="Locked USB drive technology protecting financial documents during recovery" decoding="async" loading="lazy" src="https://i.ibb.co/B5FrzdY8/Drive-Locked-Technology.jpg"/></div>
+<h3>BofA Portal Says "Insert security key into USB port" but Nothing Happens</h3>
+<p>If you are attempting a wire transfer and the browser isn't recognizing the hardware token:</p>
+<ul>
+<li><strong>Check browser permissions:</strong> Chrome and Edge often block USB access by default for unverified sites. Ensure `bankofamerica.com` is whitelisted in your browser's security settings.</li>
+<li><strong>Try a different port:</strong> Move the key from a hub to a motherboard-direct USB port.</li>
+<li><strong>Tap the gold disc:</strong> Most FIDO keys require a physical tap to confirm human presence. The prompt will hang indefinitely until you physically touch the flashing sensor.</li>
+</ul>
+<h3>How to recover access to a locked folder you own</h3>
+<p>If you used software like Folder Lock to secure a thumb drive and forgot the master password, you cannot simply bypass the encryption—that would render the security useless.</p>
+<ul>
+<li>Check your password manager for saved credentials.</li>
+<li>If you saved a master-key recovery file during initial setup, locate it on your primary hard drive.</li>
+<li>If you configured a "Lost and Found" contact profile within the software before losing the drive, a good Samaritan who finds it will be presented with your email and phone number on the lock screen, giving you a chance to recover the physical media safely.</li>
+<li>We strongly advise against downloading "USB crack" software. These tools are almost universally malware designed to steal your remaining data. If the AES-256 key is lost, the data is cryptographically irretrievable.</li>
+</ul>
+<!-- SEED E Signature Detail: Pull-Quote -->
+<div class="sig-pullquote reveal" style="margin-top: 60px;">
+<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"></path></svg>
+            "Can a virus spread through a password-protected USB drive? Yes. If you unlock the drive on an infected public computer, the malware can write itself into your unencrypted files before you lock the drive again. Always use caution on shared machines."
+          </div>
+</div>
+</section>
+<!-- S21: RELATED GUIDES (Added based on new research context) -->
+<section class="section-pad bg-alternate" data-label="POLICY" id="related-guides">
+<div class="reading-container container">
+<h2>Organizational Policies and Safe Usage</h2><div class="content-image reveal"><img alt="USB flash drive security best practices for organizational policy and safe use" decoding="async" loading="lazy" src="https://i.ibb.co/HDN357D3/usb-flash-drive-security-best-practices.jpg"/></div>
+<h3>USB Security Policies for Organizations</h3>
+<p>For corporate environments managing Bank of America access credentials alongside vast amounts of offline financial data, a comprehensive security protocol is mandatory. Relying on an honor system for data transport inevitably results in costly breaches. A robust internal policy should enforce the deployment of specialized endpoint protection software to restrict access exclusively to approved, serial-numbered drives. Staff should be prevented from utilizing personal media disks, network-mapped drives, or Bluetooth connections for transferring sensitive spreadsheets. Routine audits should be conducted using the stealth logging features of these endpoint tools to review denied access attempts and trace irregular hardware connections back to specific user accounts.</p>
+<h3>Safe USB Disposal and Data Wiping</h3>
+<p>Prior to disposing of an aging flash drive previously utilized for banking backups, simply deleting the files or performing a quick format is woefully inadequate. Standard deletion merely removes the directory index, leaving the raw data fully intact and vulnerable to basic recovery software. To guarantee complete destruction, the drive must undergo a multi-pass cryptographic wipe. The most secure methodology involves encrypting the entire drive with a highly complex, disposable password using a trusted data locker tool, and subsequently formatting the drive multiple times. This ensures that any residual traces left on the flash memory sectors are thoroughly randomized and entirely unreadable to forensic extraction attempts.</p>
+</div>
+</section>
+<!-- S19: RELATED PRODUCTS (Expanded based on new research context) -->
+<section class="section-pad">
+<div class="reading-container container">
+<h2>Related Security Tools</h2>
+<p>If you are looking to lock down other aspects of your workflow, these dedicated tools are developed by NewSoftwares.net, the same team behind Folder Lock.</p>
+<div class="related-grid">
+<div class="related-card reveal">
+<h4><a href="https://www.newsoftwares.net/usb-secure/" rel="noopener noreferrer" target="_blank">USB Secure</a></h4>
+<p>Engineered exclusively for portable media, this software password-protects flash drives instantly without requiring host installation or administrative privileges. It supports FAT32, NTFS, and exFAT file systems, and features a unique 'Virtual Drive' sandbox mode that allows you to safely view protected banking documents without fully decrypting them onto a public guest computer.</p>
+</div>
+<div class="related-card reveal">
+<h4><a href="https://www.newsoftwares.net/usb-block/" rel="noopener noreferrer" target="_blank">USB Block</a></h4>
+<p>A powerful endpoint defense application designed to stop data leaks at the source. It allows administrators to lock down physical ports, rejecting all unauthorized thumb drives, smartphones, network computers, and non-system partitions. You can whitelist trusted hardware, run the application entirely in stealth mode, and maintain detailed logs of illegal login attempts.</p>
+</div>
+<div class="related-card reveal">
+<h4><a href="https://www.newsoftwares.net/cloud-secure/" rel="noopener noreferrer" target="_blank">Cloud Secure</a></h4>
+<p>Specialized password protection designed for locally synced cloud directories. It prevents unauthorized desktop access to your connected Dropbox, Google Drive, and OneDrive folders, ensuring that even if someone gains access to your unlocked PC, your cloud backups remain strictly off-limits.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- S20: FAQ (Accordion V4) -->
+<section class="section-pad bg-alternate pink-label" data-label="FAQ" id="faq">
+<div class="reading-container container">
+<h2>Frequently Asked Questions</h2>
+<p>Answers to the most common queries regarding BofA security keys and USB encryption.</p>
+<div class="faq-accordion">
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question">
+                What is the Bank of America USB security key?
+                <span class="faq-icon">+</span>
+</button>
+<div class="faq-preview">It is a physical hardware token (like a YubiKey) used for two-factor authentication...</div>
+<div class="faq-answer">
+<p>It is a physical hardware token (like a YubiKey) used for two-factor authentication during high-risk banking activities, such as logging into CashPro or authorizing large wire transfers. It proves your physical presence.</p>
+</div>
+</div>
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question">
+                Where to buy a USB security key for Bank of America?
+                <span class="faq-icon">+</span>
+</button>
+<div class="faq-preview">You must purchase a FIDO2 certified key from a reputable vendor...</div>
+<div class="faq-answer">
+<p>Bank of America does not typically sell these directly. You must purchase a FIDO2 certified key from a reputable vendor like Yubico (YubiKey), Google (Titan), or Feitian. Never buy second-hand security keys.</p>
+</div>
+</div>
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question">
+                Can I use a regular USB as a security key?
+                <span class="faq-icon">+</span>
+</button>
+<div class="faq-preview">For BofA login? No. For protecting data? Yes, using software...</div>
+<div class="faq-answer">
+<p>For logging into Bank of America? No. BofA requires a dedicated cryptographic chip. However, if you want to use a regular USB to store passwords and secure documents, you can <em>turn</em> it into a secure vault using software like Folder Lock or USB Secure.</p>
+</div>
+</div>
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question">
+                What is the difference between hardware-encrypted and software-encrypted USB drives?
+                <span class="faq-icon">+</span>
+</button>
+<div class="faq-preview">Hardware drives have physical keypads. Software drives use your PC to encrypt...</div>
+<div class="faq-answer">
+<p>Hardware-encrypted drives feature physical keypads on the device itself and handle encryption natively. They are highly secure but very expensive. Software-encrypted drives (using tools like Folder Lock) use your computer's processor to encrypt the data, allowing you to use cheap, standard thumb drives safely.</p>
+</div>
+</div>
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question">
+                How to create a USB security key on Windows 11?
+                <span class="faq-icon">+</span>
+</button>
+<div class="faq-preview">You can use BitLocker to Go or a third-party application...</div>
+<div class="faq-answer">
+<p>If you have Windows 11 Pro, plug in your drive, right-click it in File Explorer, and select "Turn on BitLocker". If you have Windows 11 Home, you will need to download and install a third-party application like Folder Lock to password-protect the drive.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- S22: FINAL VERDICT -->
+<section class="section-pad final-verdict pink-label" data-label="VERDICT" style="border-top: 1px solid var(--color-border); text-align: center;">
+<div class="reading-container container">
+<h2>Our Verdict</h2>
+<p style="font-size: 1.1rem;">Navigating Bank of America's USB security requirements means understanding the difference between a login token and a data vault. Buy a FIDO2 key for safe wire transfers. But to protect the actual financial records you carry with you, turn your standard flash drives into encrypted lockers.</p>
+<div style="margin-top: 32px;">
+<a class="btn-outline" href="https://www.newsoftwares.net/download/folderlock10-en/folderlock10-en.exe" rel="noopener noreferrer" style="margin-right: 16px;" target="_blank">Try Folder Lock free →</a>
+<a class="btn-outline" href="https://store.newsoftwares.net/?add=fl10" rel="noopener noreferrer" target="_blank">Get the full version →</a>
+</div>
+</div>
+</section>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-flex">
+<div class="footer-col" style="max-width: 300px;">
+<h4 class="footer-brand" style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 8px;"><svg aria-label="USB Security Hub shield graphic" class="brand-mark" role="img" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="brandShield" x1="8" x2="56" y1="6" y2="58">
+<stop stop-color="#4338CA"></stop>
+<stop offset="1" stop-color="#EC4899"></stop>
+</linearGradient>
+</defs>
+<rect fill="rgba(255,255,255,0.72)" height="52" rx="18" width="52" x="6" y="6"></rect>
+<path d="M32 11l18 7v13c0 12.5-7.6 19.6-18 22-10.4-2.4-18-9.5-18-22V18l18-7z" fill="url(#brandShield)"></path>
+<path d="M32 20v11" stroke="white" stroke-linecap="round" stroke-width="4"></path>
+<path d="M23 31h18" stroke="white" stroke-linecap="round" stroke-width="4"></path>
+<circle cx="32" cy="40" fill="white" r="4"></circle>
+</svg><span class="brand-wordmark"><span>USB</span><span>Security</span><span>Hub</span></span></h4>
+<p style="margin-bottom: 16px;">Independent editorial guides on securing removable media and navigating enterprise banking security.</p>
+</div>
+<div class="footer-col">
+<h4>Navigation</h4>
+<a href="#overview">Overview</a>
+<a href="#fido-setup">Setup Guide</a>
+<a href="#recommendation">Software Pick</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="#faq">FAQ</a>
+<a href="#troubleshooting">Troubleshooting</a>
+<a href="#comparison">Key Comparison</a>
+</div>
+</div>
+<div class="footer-legal">
+<p>© 2026 USB Security Hub. All rights reserved.</p>
+<p style="max-width: 600px; text-align: right; color: rgba(255,255,255,0.4);">This site operates as an independent editorial resource. Some links may earn a referral commission at no cost to you. Product recommendations reflect editorial judgment and independent assessment. Folder Lock is developed by <a href="https://www.newsoftwares.net" rel="noopener noreferrer" style="display: inline; color: rgba(255,255,255,0.4); text-decoration: underline;" target="_blank">NewSoftwares.net</a>.</p>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script defer="">
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Mobile Menu Toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mainNav = document.getElementById('mainNav');
+      if (mobileBtn && mainNav) {
+        mobileBtn.addEventListener('click', () => {
+          mainNav.classList.toggle('active');
+        });
+      }
+
+      // 2. Smooth Scroll for Anchors
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            if (mainNav.classList.contains('active')) mainNav.classList.remove('active');
+            window.scrollTo({
+              top: targetElement.offsetTop - 80, // offset for sticky header
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // 3. Search Intent Selector (JS Logic Tree)
+      const intentCards = document.querySelectorAll('.intent-card');
+      const intentBlocks = document.querySelectorAll('.intent-content-block');
+      
+      intentCards.forEach(card => {
+        card.addEventListener('click', () => {
+          // Reset all styles
+          intentCards.forEach(c => c.style.borderColor = 'var(--color-border)');
+          intentBlocks.forEach(b => b.classList.remove('active'));
+          
+          // Set active
+          card.style.borderColor = 'var(--color-primary-accent)';
+          const targetId = card.getAttribute('data-target');
+          const targetBlock = document.getElementById(targetId);
+          if (targetBlock) targetBlock.classList.add('active');
+        });
+      });
+
+      // 4. FAQ Accordion Logic
+      const faqButtons = document.querySelectorAll('.faq-question');
+      faqButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const item = button.parentElement;
+          const isActive = item.classList.contains('active');
+          
+          // Close all in the same container
+          const container = item.closest('.faq-accordion, .deep-dive-accordion');
+          container.querySelectorAll('.faq-item').forEach(faq => {
+            faq.classList.remove('active');
+            faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          });
+
+          // Open clicked if it wasn't active
+          if (!isActive) {
+            item.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // 5. BofA Walkthrough Animation Logic
+      const steps = [
+        { title: "Step 1: Log Into Security Center", desc: "Sign into your BofA online portal. Navigate to the 'Security Center' and select 'Extra Security at Sign-In'.", vis: "💻 ➔ 🏦" },
+        { title: "Step 2: Add USB Device", desc: "Click the option to 'Add a USB Security Key'. The portal will initiate a secure WebAuthn connection to your browser.", vis: "🏦 ➔ 🔌" },
+        { title: "Step 3: Insert Your Key", desc: "When the browser prompt appears, insert your FIDO2 key into an available USB port.", vis: "🔑 ➔ 💻" },
+        { title: "Step 4: Tap the Sensor", desc: "Physically tap the gold disc or button on the USB key to prove human presence and complete registration.", vis: "👆 ➔ 🔑" }
+      ];
+      
+      let currentStep = 0;
+      const titleEl = document.getElementById('stepTitle');
+      const descEl = document.getElementById('stepDesc');
+      const visEl = document.getElementById('stepVisual');
+      const btnNext = document.getElementById('nextStep');
+      const btnPrev = document.getElementById('prevStep');
+      const dots = document.querySelectorAll('#stepDots .dot');
+
+      function updateStep() {
+        if (!titleEl) return;
+        titleEl.textContent = steps[currentStep].title;
+        descEl.textContent = steps[currentStep].desc;
+        visEl.textContent = steps[currentStep].vis;
+        
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentStep);
+        });
+
+        btnPrev.disabled = currentStep === 0;
+        btnNext.disabled = currentStep === steps.length - 1;
+      }
+
+      if (btnNext && btnPrev) {
+        btnNext.addEventListener('click', () => {
+          if (currentStep < steps.length - 1) {
+            currentStep++;
+            updateStep();
+          }
+        });
+        btnPrev.addEventListener('click', () => {
+          if (currentStep > 0) {
+            currentStep--;
+            updateStep();
+          }
+        });
+      }
+
+
+      // 6. Scroll-triggered reveal for frosted material cards
+      document.documentElement.classList.add('js-ready');
+      const revealTargets = document.querySelectorAll('.reveal, .intent-card, .related-card, .faq-item, .method-card');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        revealTargets.forEach(el => revealObserver.observe(el));
+      } else {
+        revealTargets.forEach(el => el.classList.add('is-visible'));
+      }
+
+      // 7. Material-depth hero parallax, disabled on touch/mobile widths
+      const heroCard = document.getElementById('heroCard');
+      const heroSection = document.querySelector('.hero-editorial');
+      const canParallax = window.matchMedia('(pointer: fine) and (min-width: 769px)').matches;
+      if (heroCard && heroSection && canParallax) {
+        heroSection.addEventListener('mousemove', (event) => {
+          const rect = heroSection.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width - 0.5) * 4;
+          const y = ((event.clientY - rect.top) / rect.height - 0.5) * 4;
+          heroCard.style.transform = `translate(${x}px, ${y}px)`;
+        });
+        heroSection.addEventListener('mouseleave', () => {
+          heroCard.style.transform = 'translate(0, 0)';
+        });
+      }
+
+    });
+  </script>
+<!-- Full Schema Set -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "USB Security Hub",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://query.example.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "name": "USB Security Key for Bank of America — Setup and FAQ",
+        "description": "A complete guide to registering and using a USB security key for Bank of America, plus how to turn any standard flash drive into a secure personal device."
+      },
+      {
+        "@type": "Article",
+        "headline": "USB Security Key for Bank of America — Setup and FAQ",
+        "author": {
+          "@type": "Organization",
+          "name": "Editorial Team"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "NewSoftwares.net"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the Bank of America USB security key?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is a physical hardware token (like a YubiKey) used for two-factor authentication during high-risk banking activities, such as logging into CashPro or authorizing large wire transfers. It proves your physical presence."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where to buy a USB security key for Bank of America?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bank of America does not typically sell these directly. You must purchase a FIDO2 certified key from a reputable vendor like Yubico (YubiKey), Google (Titan), or Feitian. Never buy second-hand security keys."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use a regular USB as a security key?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For logging into Bank of America? No. BofA requires a dedicated cryptographic chip. However, if you want to use a regular USB to store passwords and secure documents, you can turn it into a secure vault using software like Folder Lock."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to Register a USB Security Key with Bank of America",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Log Into Security Center",
+            "text": "Sign into your BofA online portal. Navigate to the 'Security Center' and select 'Extra Security at Sign-In'."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Add USB Device",
+            "text": "Click the option to 'Add a USB Security Key'. The portal will initiate a secure WebAuthn connection to your browser."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Insert Your Key",
+            "text": "When the browser prompt appears, insert your FIDO2 key into an available USB port."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Tap the Sensor",
+            "text": "Physically tap the gold disc or button on the USB key to prove human presence and complete registration."
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Security Guides"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Bank of America USB Protection"
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Folder Lock",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Windows 11, Windows 10, Windows 8",
+        "offers": {
+          "@type": "Offer",
+          "price": "39.95",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "Organization",
+        "name": "NewSoftwares.net"
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
