@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stevefrankns.github.io/USB-Security-Key-Bank-of-America-Setup-and-FAQ/sitemap.xml
